@@ -1,3 +1,3 @@
 class InfluencerSerializer < ActiveModel::Serializer
-  attributes :id, :handle, :platform, :followers, :profile_pic_url, :tags, :primary_tag
+  attributes :id, :handle, :platform, :followers, :profile_pic_url, :tags, :primary_tag_id
 end
