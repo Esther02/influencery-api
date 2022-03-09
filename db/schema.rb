@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 2022_03_08_191731) do
     t.string "profile_pic_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "primary_tag"
+    t.bigint "primary_tag_id", null: false
     t.index ["platform_id"], name: "index_influencers_on_platform_id"
+    t.index ["primary_tag_id"], name: "index_influencers_on_primary_tag_id"
   end
 
   create_table "platforms", force: :cascade do |t|
@@ -51,4 +52,5 @@ ActiveRecord::Schema.define(version: 2022_03_08_191731) do
   add_foreign_key "influencer_tags", "influencers"
   add_foreign_key "influencer_tags", "tags"
   add_foreign_key "influencers", "platforms"
+  add_foreign_key "influencers", "tags", column: "primary_tag_id"
 end
